@@ -29,7 +29,7 @@
 
 笔记颜色代码：
 private void insertSampleNotes() {
-        // 删除所有现有的笔记，确保每次启动应用都会插入新的样本笔记
+        
         getContentResolver().delete(NotePad.Notes.CONTENT_URI, null, null);
 
         ContentValues values = new ContentValues();
