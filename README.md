@@ -17,6 +17,18 @@
 ![image](https://github.com/user-attachments/assets/96507cad-b906-4b6e-ab01-0e4a33b3ef58)
 （这里已经修改完背景）
 
+笔记排序：
+
+按照时间排序：
+
+![image](https://github.com/user-attachments/assets/78a7da23-dae6-4f15-8398-a43f3e491b02)
+
+按颜色排序（根据颜色的整数值来进行排序。颜色在代码中通常表示为 ARGB（Alpha, Red, Green, Blue）格式的整数值，因此可以按数值大小排序）：
+
+![image](https://github.com/user-attachments/assets/a46aaecc-fe11-44bb-a242-dabb99261984)
+
+各个
+
 
 
 
