@@ -42,6 +42,7 @@ android期中实验：
 ![image](https://github.com/user-attachments/assets/a46aaecc-fe11-44bb-a242-dabb99261984)
 
 笔记颜色代码：
+
 private void insertSampleNotes() {
         
         getContentResolver().delete(NotePad.Notes.CONTENT_URI, null, null);
