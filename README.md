@@ -1,3 +1,15 @@
+android期中实验：
+基本功能：
+1.NoteList界面中笔记条目增加时间戳显示
+
+2.查询功能
+
+扩展功能：
+
+3.设置背景
+
+4.笔记排序
+
 笔记时间戳和笔记查询功能：
 
 ![image](https://github.com/user-attachments/assets/dfc2b321-2cf2-457b-bc4a-9d7c62dc9fa3)
