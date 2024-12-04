@@ -330,7 +330,6 @@ view.setBackgroundColor(backgroundColor);
 
 
 sortBySizeButton.setOnClickListener(new View.OnClickListener() {
-
     @Override
     
     public void onClick(View v) {
@@ -338,7 +337,6 @@ sortBySizeButton.setOnClickListener(new View.OnClickListener() {
         toggleSortOrder(); // 切换排序方式
         
     }
-    
 });
 
 
