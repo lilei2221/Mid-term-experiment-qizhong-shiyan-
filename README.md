@@ -310,9 +310,11 @@ values.put(NotePad.Notes.COLUMN_NAME_BACKGROUND_COLOR, newColor);
 在 noteslist_item.xml 中，使用动态设置背景颜色来修改笔记项的背景。
 
 
+
 int backgroundColor = cursor.getInt(cursor.getColumnIndex(NotePad.Notes.COLUMN_NAME_BACKGROUND_COLOR));
 
 view.setBackgroundColor(backgroundColor);
+
 
 
 3.4 结果：
@@ -330,6 +332,7 @@ view.setBackgroundColor(backgroundColor);
 
 
 sortBySizeButton.setOnClickListener(new View.OnClickListener() {
+
     @Override
     
     public void onClick(View v) {
@@ -337,6 +340,7 @@ sortBySizeButton.setOnClickListener(new View.OnClickListener() {
         toggleSortOrder(); // 切换排序方式
         
     }
+    
 });
 
 
