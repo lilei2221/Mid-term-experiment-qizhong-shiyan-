@@ -309,7 +309,7 @@ private void searchNotes(String query) {
 
 // 在 NotePadProvider.java 中的 insert 方法中
 
-
+```
 if (!values.containsKey(NotePad.Notes.COLUMN_NAME_BACKGROUND_COLOR)) {
 
     values.put(NotePad.Notes.COLUMN_NAME_BACKGROUND_COLOR, Color.WHITE); // 默认背景色
@@ -320,18 +320,17 @@ if (!values.containsKey(NotePad.Notes.COLUMN_NAME_BACKGROUND_COLOR)) {
 
 values.put(NotePad.Notes.COLUMN_NAME_BACKGROUND_COLOR, newColor);
 
+```
 
 3.3 修改布局文件，支持动态背景设置
 
 在 noteslist_item.xml 中，使用动态设置背景颜色来修改笔记项的背景。
 
-
-
+```
 int backgroundColor = cursor.getInt(cursor.getColumnIndex(NotePad.Notes.COLUMN_NAME_BACKGROUND_COLOR));
 
 view.setBackgroundColor(backgroundColor);
-
-
+```
 
 3.4 结果：
 用户能够动态设置和更新笔记的背景颜色，界面展示会实时反映用户的个性化设置。
@@ -346,7 +345,7 @@ view.setBackgroundColor(backgroundColor);
 
 通过按钮切换排序方式，在 NotesList 中添加按时间或按内容大小排序的功能。
 
-
+```
 sortBySizeButton.setOnClickListener(new View.OnClickListener() {
 
     @Override
@@ -358,8 +357,9 @@ sortBySizeButton.setOnClickListener(new View.OnClickListener() {
     }
     
 });
+```
 
-
+```
 private void toggleSortOrder() {
 
     if (isSortedByContentSize) {
@@ -379,6 +379,8 @@ private void toggleSortOrder() {
     isSortedByContentSize = !isSortedByContentSize; // 切换排序状态
     
 }
+```
+
 
 4.3 结果：
 
