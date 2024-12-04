@@ -43,6 +43,7 @@ android期中实验：
 
 笔记颜色代码：
 
+```
 private void insertSampleNotes() {
         
         getContentResolver().delete(NotePad.Notes.CONTENT_URI, null, null);
@@ -97,6 +98,7 @@ private void insertSampleNotes() {
         values.put(NotePad.Notes.COLUMN_NAME_BACKGROUND_COLOR, Color.BLUE);
         getContentResolver().insert(NotePad.Notes.CONTENT_URI, values);
     }
+```
 
 基本功能
 
@@ -110,16 +112,19 @@ private void insertSampleNotes() {
 
 在 NotesList.java 中，修改 PROJECTION 数组，增加时间戳字段 COLUMN_NAME_MODIFICATION_DATE：
 
+```
 private static final String[] PROJECTION = new String[] {
     NotePad.Notes._ID, // 0
     NotePad.Notes.COLUMN_NAME_TITLE, // 1
     NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE // 2 - 新增时间戳字段
 };
+```
 
 1.3 修改布局文件，增加时间戳 TextView
 
 在 res/layout/noteslist_item.xml 文件中，新增一个 TextView 用于显示时间戳。该 TextView 显示在笔记标题下方，以较小字体显示时间，避免干扰主标题内容。
 
+```
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -145,11 +150,13 @@ private static final String[] PROJECTION = new String[] {
         android:gravity="center_vertical"
         android:paddingTop="2dp" />
 </LinearLayout>
+```
 
 1.4 更新适配器，绑定时间戳字段到 TextView
 
 在 NotesList.java 的 onCreate() 方法中，修改 SimpleCursorAdapter，将时间戳字段绑定到布局中的 TextView。
 
+```
 String[] dataColumns = {
     NotePad.Notes.COLUMN_NAME_TITLE, 
     NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE  // 新增时间戳字段
@@ -168,11 +175,13 @@ SimpleCursorAdapter adapter = new SimpleCursorAdapter(
     viewIDs
 );
 setListAdapter(adapter);
+```
 
 1.5 格式化时间戳为可读的日期格式
 
 通过 SimpleDateFormat 对时间戳进行格式化，使其成为用户友好的日期格式，设置时区为中国北京时间（Asia/Shanghai）。
 
+```
 adapter.setViewBinder(new SimpleCursorAdapter.ViewBinder() {
     @Override
     public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
@@ -192,11 +201,13 @@ adapter.setViewBinder(new SimpleCursorAdapter.ViewBinder() {
         return false;  // 其他字段交由默认绑定处理
     }
 });
+```
 
 1.6 更新数据库插入和更新逻辑
 
 确保在笔记插入和更新时，COLUMN_NAME_MODIFICATION_DATE 字段会被正确地设置为当前时间。
 
+```
 // 在 NotePadProvider.java 中的 insert 方法中
 if (!values.containsKey(NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE)) {
     values.put(NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE, System.currentTimeMillis());
@@ -204,6 +215,7 @@ if (!values.containsKey(NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE)) {
 
 // 在 update 方法中，将修改日期更新为当前时间
 values.put(NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE, System.currentTimeMillis());
+```
 
 1.7 结果：
 
@@ -219,6 +231,7 @@ values.put(NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE, System.currentTimeMillis
 
 在 NotesList.java 的 onCreate() 方法中，动态创建 SearchView 并添加到界面顶部。
 
+```
 @Override
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -252,11 +265,13 @@ protected void onCreate(Bundle savedInstanceState) {
         }
     });
 }
+```
 
 2.3 实现 searchNotes 方法
 
 在 NotesList.java 中添加 searchNotes 方法，通过 ContentResolver.query() 查询笔记标题和内容，更新列表显示。
 
+```
 private void searchNotes(String query) {
     // 定义查询条件，搜索标题或内容中包含关键字的笔记
     String selection = NotePad.Notes.COLUMN_NAME_TITLE + " LIKE ? OR " +
@@ -275,6 +290,7 @@ private void searchNotes(String query) {
     // 更新适配器的数据
     ((SimpleCursorAdapter) getListAdapter()).changeCursor(cursor);
 }
+```
 
 2.4 结果：
 
