@@ -320,24 +320,39 @@ view.setBackgroundColor(backgroundColor);
 通过按钮切换排序方式，在 NotesList 中添加按时间或按内容大小排序的功能。
 
 sortBySizeButton.setOnClickListener(new View.OnClickListener() {
+
     @Override
+    
     public void onClick(View v) {
+    
         toggleSortOrder(); // 切换排序方式
+        
     }
+    
 });
 
 private void toggleSortOrder() {
+
     if (isSortedByContentSize) {
+    
         loadNotes(NotePad.Notes.DEFAULT_SORT_ORDER); // 默认按时间排序
+        
         sortBySizeButton.setText("按内容大小排序"); // 更新按钮文本
+        
     } else {
+    
         loadNotes("LENGTH(" + NotePad.Notes.COLUMN_NAME_NOTE + ") ASC"); // 按内容大小排序
+        
         sortBySizeButton.setText("按时间排序"); // 更新按钮文本
+        
     }
+    
     isSortedByContentSize = !isSortedByContentSize; // 切换排序状态
+    
 }
 
 4.3 结果：
+
 用户可以通过按钮切换排序方式，实时查看按时间或内容大小排序的笔记列表，增强了列表的可操作性。
 
 
